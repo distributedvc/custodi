@@ -1,0 +1,84 @@
+{
+  "name": "@distributed/custodi",
+  "description": "Small library to save utm parameters into a session cookie.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/distributedvc/custodi",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "custodi",
+    "keep",
+    "save",
+    "utm",
+    "cookie",
+    "session"
+  ],
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "resolutions": {
+    "eslint-config-prettier": "8.3.0"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "eslint --ext .ts src/",
+    "lint:tsdx": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint"
+    }
+  },
+  "module": "dist/custodi.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/custodi.cjs.production.min.js",
+      "limit": "4 KB"
+    },
+    {
+      "path": "dist/custodi.esm.js",
+      "limit": "4 KB"
+    }
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@size-limit/preset-small-lib": "^4.12.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "@vercel/node": "^1.11.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.1",
+    "size-limit": "^4.12.0",
+    "standard-version": "^9.3.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@distributed/utm": "0.0.3",
+    "cookie-universal": "^2.1.5"
+  }
+}

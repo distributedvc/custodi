@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custodi should extract correct utms from the query 1`] = `
+Object {
+  "utm_campaign": "name",
+  "utm_content": "content",
+  "utm_medium": "medium",
+  "utm_source": "google",
+  "utm_term": "term",
+}
+`;
